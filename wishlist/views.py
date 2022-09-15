@@ -6,10 +6,10 @@ from wishlist.models import BarangWishlist
 # Create your views here
 
 def show_wishlist(request):
-    data = BarangWishlist.objects.all()
+    data_barang_wishlist = BarangWishlist.objects.all()
     context = {
                 'list_barang': data_barang_wishlist,
                 'nama': 'Ridho Mulia'
                }
-    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+    return render(request, 'wishlist.html', context)
 
